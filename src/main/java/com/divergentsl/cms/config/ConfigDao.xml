@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="com.divergentsl.cms" />
+
+	<!-- Database Manager -->
+	<bean id="databasemanager" class="com.divergentsl.cms.DatabaseManager" />
+
+	<!-- Doctor Dao -->
+	<bean id="doctordao" class="com.divergentsl.cms.dao.DoctorDao">
+		<constructor-arg ref="databasemanager" />
+	</bean>
+	
+	<!-- Drug Dao -->
+	<bean id="drugdao" class="com.divergentsl.cms.dao.DrugDao">
+		<constructor-arg ref="databasemanager" />
+	</bean>
+	
+	<!-- Patient Dao -->
+	<bean id="patientdao" class="com.divergentsl.cms.dao.PatientDao">
+		<constructor-arg ref="databasemanager" />
+	</bean>
+
+	<!-- Lab Test Dao -->
+	<bean id="labtestdao" class="com.divergentsl.cms.dao.LabTestDao">
+		<constructor-arg ref="databasemanager" />
+	</bean>
+	
+	<!-- Patient Appointment Dao -->
+	<bean id="patientappointmentdao" class="com.divergentsl.cms.dao.PatientAppointmentDao">
+		<constructor-arg ref="databasemanager" />
+	</bean>
+
+	<!-- Login Dao -->
+	<bean id="logindao" class="com.divergentsl.cms.dao.LoginDao">
+		<constructor-arg ref="databasemanager" />
+	</bean>
+
+
+
+ </beans>
